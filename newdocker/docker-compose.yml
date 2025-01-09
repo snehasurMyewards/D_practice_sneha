@@ -1,0 +1,26 @@
+services:
+  backend:
+    build:
+      context: ./node
+      dockerfile: Dockerfile # Dockerfile in the root directory
+    container_name: node_backend
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./node:/app
+    networks:
+      - app_network
+
+  frontend:
+    build:
+      context: ./reactapp
+      dockerfile: Dockerfile # Dockerfile inside reactapp folder
+    container_name: react_frontend
+    ports:
+      - "3000:3000"
+    networks:
+      - app_network
+
+networks:
+  app_network:
+    driver: bridge
