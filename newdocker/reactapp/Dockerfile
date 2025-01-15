@@ -2,7 +2,7 @@
 FROM node:slim
 
 # Set working directory
-WORKDIR /app
+WORKDIR /src
 
 # Copy package.json and package-lock.json first for caching
 COPY ./package*.json ./
